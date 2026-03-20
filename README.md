@@ -2,7 +2,7 @@
 
 ![Overview](assets/overview.svg)
 
-MediCLIPSegBoneAge is a starter project for adapting MedCLIPSeg style vision language modeling to pediatric bone age assessment. The current repository contains a first working baseline for RSNA bone age regression, built as a standalone research codebase with a MedCLIP inspired text conditioned image encoder and a simple fusion head for image features, prompt features, and gender metadata.
+MediCLIPSegBoneAge is a small exploratory project for testing whether a MedCLIP style visual language formulation can transfer to pediatric bone age assessment. The repository contains working RSNA regression baselines and prompt comparison experiments, and is kept as an exploration record rather than a primary research direction.
 
 ![Pipeline](assets/pipeline.svg)
 
@@ -27,6 +27,10 @@ This initial version trains a text conditioned CLIP based bone age regressor on 
 - MAE regression objective
 
 The current prompt template is intentionally side agnostic: `hand radiograph for bone age assessment of a male pediatric patient` or the corresponding female variant. This avoids injecting incorrect left right assumptions when the dataset contains both hands.
+
+## Project status
+
+This repository is being kept as an exploratory project. The current experiments suggest that under the available setup, the model is still driven mostly by image features and structured gender input, while template based text conditioning contributes limited additional signal. For that reason, this codebase is useful as a record of the exploration, but it is not currently the main line for further multimodal bone age research.
 
 ## First baseline
 
@@ -109,11 +113,11 @@ python train.py \
   --output-dir outputs/rsna_clip_baseline
 ```
 
-## Next steps
+## Possible follow up directions
 
-The current code is a clean starting point. The next research upgrades worth doing are:
+If this repository is revisited later, the most meaningful upgrades would be:
 
 - replace global CLIP pooling with patch token pooling from MedCLIPSeg
 - add a hand region branch or external hand mask
-- compare generic prompts and age aware prompt templates
+- introduce genuinely informative non image inputs instead of template prompts
 - test uncertainty aware regression heads
