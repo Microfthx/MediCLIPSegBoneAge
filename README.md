@@ -1,6 +1,10 @@
 # MediCLIPSegBoneAge
 
+![Overview](assets/overview.svg)
+
 MediCLIPSegBoneAge is a starter project for adapting MedCLIPSeg style vision language modeling to pediatric bone age assessment. The current repository contains a first working baseline for RSNA bone age regression, built as a standalone research codebase with a MedCLIP inspired text conditioned image encoder and a simple fusion head for image features, prompt features, and gender metadata.
+
+![Pipeline](assets/pipeline.svg)
 
 ## Project layout
 

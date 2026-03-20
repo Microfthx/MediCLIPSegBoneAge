@@ -1,0 +1,69 @@
+<svg width="1400" height="720" viewBox="0 0 1400 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="1400" height="720" fill="#F5FAF8"/>
+<rect x="36" y="36" width="1328" height="648" rx="28" fill="url(#paint0_linear)" stroke="#B8D7CF" stroke-width="2"/>
+<text x="76" y="108" fill="#113B38" font-family="Helvetica, Arial, sans-serif" font-size="36" font-weight="700">MediCLIPSegBoneAge</text>
+<text x="76" y="146" fill="#35625E" font-family="Helvetica, Arial, sans-serif" font-size="20">Text conditioned bone age assessment with MedCLIP style visual language fusion</text>
+
+<rect x="76" y="196" width="248" height="404" rx="24" fill="#FFFFFF" stroke="#C7DED7" stroke-width="2"/>
+<text x="104" y="238" fill="#113B38" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="700">Input</text>
+<rect x="104" y="268" width="192" height="186" rx="18" fill="#EAF4F1" stroke="#B7D3CB" stroke-width="2"/>
+<rect x="122" y="286" width="156" height="150" rx="12" fill="#DDEAE6"/>
+<path d="M174 330C186 309 211 301 232 306C251 311 265 327 266 348C267 367 255 382 238 392C231 396 223 399 219 406C215 413 215 423 210 431C202 444 184 448 170 442C154 435 147 417 149 399C151 380 160 363 168 347C171 341 172 335 174 330Z" fill="#8FB8AD"/>
+<circle cx="192" cy="364" r="10" fill="#F5FAF8"/>
+<circle cx="221" cy="350" r="9" fill="#F5FAF8"/>
+<circle cx="231" cy="380" r="8" fill="#F5FAF8"/>
+<text x="128" y="474" fill="#35625E" font-family="Helvetica, Arial, sans-serif" font-size="18">Left hand radiograph</text>
+<rect x="104" y="492" width="192" height="42" rx="12" fill="#0E7490"/>
+<text x="130" y="519" fill="#FFFFFF" font-family="Helvetica, Arial, sans-serif" font-size="18">Prompt: pediatric hand X ray</text>
+<rect x="104" y="548" width="88" height="36" rx="10" fill="#1F9D8B"/>
+<text x="129" y="571" fill="#FFFFFF" font-family="Helvetica, Arial, sans-serif" font-size="18">Male</text>
+<rect x="208" y="548" width="88" height="36" rx="10" fill="#A85578"/>
+<text x="225" y="571" fill="#FFFFFF" font-family="Helvetica, Arial, sans-serif" font-size="18">Female</text>
+
+<rect x="384" y="196" width="324" height="404" rx="24" fill="#FFFFFF" stroke="#C7DED7" stroke-width="2"/>
+<text x="416" y="238" fill="#113B38" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="700">MedCLIP style encoder</text>
+<rect x="416" y="270" width="260" height="94" rx="18" fill="#E6F0FA" stroke="#B8CCE0" stroke-width="2"/>
+<text x="442" y="308" fill="#214E78" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="700">Visual encoder</text>
+<text x="442" y="336" fill="#4C6E91" font-family="Helvetica, Arial, sans-serif" font-size="18">CLIP image tower with hand radiograph input</text>
+<rect x="416" y="388" width="260" height="94" rx="18" fill="#EDF7F4" stroke="#B9D8CE" stroke-width="2"/>
+<text x="442" y="426" fill="#185B55" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="700">Text encoder</text>
+<text x="442" y="454" fill="#4A7A75" font-family="Helvetica, Arial, sans-serif" font-size="18">Prompt tokens projected to semantic features</text>
+<rect x="416" y="506" width="260" height="62" rx="18" fill="#FFF3E8" stroke="#E9C8A1" stroke-width="2"/>
+<text x="442" y="545" fill="#8A5A14" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="700">Gender embedding branch</text>
+
+<rect x="768" y="196" width="248" height="404" rx="24" fill="#FFFFFF" stroke="#C7DED7" stroke-width="2"/>
+<text x="804" y="238" fill="#113B38" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="700">Fusion</text>
+<circle cx="892" cy="354" r="112" fill="#F4FBF8" stroke="#B7D3CB" stroke-width="2"/>
+<circle cx="854" cy="332" r="56" fill="#B7D9F5" fill-opacity="0.85"/>
+<circle cx="930" cy="332" r="56" fill="#A8E1D0" fill-opacity="0.85"/>
+<circle cx="892" cy="390" r="56" fill="#F2C98B" fill-opacity="0.75"/>
+<text x="825" y="336" fill="#1E4F77" font-family="Helvetica, Arial, sans-serif" font-size="18" font-weight="700">image</text>
+<text x="908" y="336" fill="#195C55" font-family="Helvetica, Arial, sans-serif" font-size="18" font-weight="700">text</text>
+<text x="868" y="396" fill="#8A5A14" font-family="Helvetica, Arial, sans-serif" font-size="18" font-weight="700">gender</text>
+<text x="834" y="529" fill="#35625E" font-family="Helvetica, Arial, sans-serif" font-size="18">feature concatenation and MLP</text>
+
+<rect x="1076" y="196" width="248" height="404" rx="24" fill="#FFFFFF" stroke="#C7DED7" stroke-width="2"/>
+<text x="1106" y="238" fill="#113B38" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="700">Output</text>
+<rect x="1110" y="286" width="180" height="106" rx="20" fill="#EAF4F1" stroke="#B7D3CB" stroke-width="2"/>
+<text x="1155" y="335" fill="#185B55" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="700">Bone age</text>
+<text x="1157" y="368" fill="#4A7A75" font-family="Helvetica, Arial, sans-serif" font-size="18">Regression in months</text>
+<rect x="1110" y="430" width="180" height="108" rx="20" fill="#FFF7ED" stroke="#E8D1AC" stroke-width="2"/>
+<text x="1150" y="476" fill="#8A5A14" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="700">Training</text>
+<text x="1148" y="508" fill="#9A6A21" font-family="Helvetica, Arial, sans-serif" font-size="18">Loss = MAE + 0.1 MSE</text>
+
+<path d="M324 398H370" stroke="#2B7A78" stroke-width="8" stroke-linecap="round"/>
+<path d="M356 380L384 398L356 416" fill="#2B7A78"/>
+<path d="M708 398H754" stroke="#2B7A78" stroke-width="8" stroke-linecap="round"/>
+<path d="M740 380L768 398L740 416" fill="#2B7A78"/>
+<path d="M1016 398H1062" stroke="#2B7A78" stroke-width="8" stroke-linecap="round"/>
+<path d="M1048 380L1076 398L1048 416" fill="#2B7A78"/>
+
+<text x="76" y="648" fill="#4F6C68" font-family="Helvetica, Arial, sans-serif" font-size="18">Current baseline: RSNA split, ViT B 16 backbone, best validation MAE 30.7205 at epoch 10</text>
+
+<defs>
+<linearGradient id="paint0_linear" x1="92" y1="54" x2="1298" y2="666" gradientUnits="userSpaceOnUse">
+<stop stop-color="#FCFFFE"/>
+<stop offset="1" stop-color="#EEF7F4"/>
+</linearGradient>
+</defs>
+</svg>

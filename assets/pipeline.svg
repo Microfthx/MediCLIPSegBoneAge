@@ -1,0 +1,59 @@
+<svg width="1400" height="860" viewBox="0 0 1400 860" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="1400" height="860" fill="#F8FBFD"/>
+<text x="84" y="92" fill="#173B5E" font-family="Helvetica, Arial, sans-serif" font-size="36" font-weight="700">Training and Inference Pipeline</text>
+<text x="84" y="132" fill="#4D6B88" font-family="Helvetica, Arial, sans-serif" font-size="20">RSNA bone age workflow for the first MediCLIPSegBoneAge baseline</text>
+
+<rect x="84" y="184" width="1232" height="170" rx="26" fill="#FFFFFF" stroke="#D1DFEA" stroke-width="2"/>
+<text x="116" y="228" fill="#173B5E" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="700">1. Data preparation</text>
+<rect x="116" y="254" width="260" height="68" rx="16" fill="#EAF2FA" stroke="#C1D3E2" stroke-width="2"/>
+<text x="149" y="296" fill="#2A557E" font-family="Helvetica, Arial, sans-serif" font-size="20">Read RSNA CSV annotations</text>
+<rect x="422" y="254" width="260" height="68" rx="16" fill="#EDF8F4" stroke="#C0DDD0" stroke-width="2"/>
+<text x="455" y="296" fill="#1F645B" font-family="Helvetica, Arial, sans-serif" font-size="20">Load hand radiograph PNG</text>
+<rect x="728" y="254" width="260" height="68" rx="16" fill="#FFF5EA" stroke="#E8D3B6" stroke-width="2"/>
+<text x="771" y="296" fill="#8C6126" font-family="Helvetica, Arial, sans-serif" font-size="20">Build sex specific prompt</text>
+<rect x="1034" y="254" width="250" height="68" rx="16" fill="#F8EDF3" stroke="#E1C5D3" stroke-width="2"/>
+<text x="1073" y="296" fill="#8A4965" font-family="Helvetica, Arial, sans-serif" font-size="20">Normalize and augment</text>
+
+<rect x="84" y="394" width="1232" height="202" rx="26" fill="#FFFFFF" stroke="#D1DFEA" stroke-width="2"/>
+<text x="116" y="438" fill="#173B5E" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="700">2. Feature encoding and fusion</text>
+<rect x="116" y="470" width="292" height="88" rx="18" fill="#EAF2FA" stroke="#C1D3E2" stroke-width="2"/>
+<text x="160" y="508" fill="#2A557E" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="700">Image encoder</text>
+<text x="145" y="538" fill="#587897" font-family="Helvetica, Arial, sans-serif" font-size="18">CLIP visual backbone from MedCLIPSeg</text>
+<rect x="454" y="470" width="292" height="88" rx="18" fill="#EDF8F4" stroke="#C0DDD0" stroke-width="2"/>
+<text x="510" y="508" fill="#1F645B" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="700">Text encoder</text>
+<text x="493" y="538" fill="#5B7E76" font-family="Helvetica, Arial, sans-serif" font-size="18">Token embedding and transformer projection</text>
+<rect x="792" y="470" width="222" height="88" rx="18" fill="#FFF5EA" stroke="#E8D3B6" stroke-width="2"/>
+<text x="826" y="508" fill="#8C6126" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="700">Gender branch</text>
+<text x="838" y="538" fill="#A0763B" font-family="Helvetica, Arial, sans-serif" font-size="18">One dimensional input</text>
+<rect x="1060" y="458" width="224" height="112" rx="22" fill="#F3FBF8" stroke="#BDD8CD" stroke-width="2"/>
+<text x="1121" y="505" fill="#1C5E57" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="700">Fusion MLP</text>
+<text x="1087" y="538" fill="#597A74" font-family="Helvetica, Arial, sans-serif" font-size="18">Concatenate normalized features</text>
+
+<rect x="84" y="636" width="1232" height="140" rx="26" fill="#FFFFFF" stroke="#D1DFEA" stroke-width="2"/>
+<text x="116" y="680" fill="#173B5E" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="700">3. Objective and outputs</text>
+<rect x="116" y="704" width="350" height="40" rx="12" fill="#F8EDF3"/>
+<text x="140" y="730" fill="#8A4965" font-family="Helvetica, Arial, sans-serif" font-size="18">Prediction: continuous bone age in months</text>
+<rect x="506" y="704" width="292" height="40" rx="12" fill="#FFF5EA"/>
+<text x="545" y="730" fill="#8C6126" font-family="Helvetica, Arial, sans-serif" font-size="18">Training loss: MAE + 0.1 MSE</text>
+<rect x="838" y="704" width="446" height="40" rx="12" fill="#EDF8F4"/>
+<text x="864" y="730" fill="#1F645B" font-family="Helvetica, Arial, sans-serif" font-size="18">Evaluation: validation MAE with best checkpoint selection</text>
+
+<path d="M376 288H412" stroke="#2C7FB8" stroke-width="7" stroke-linecap="round"/>
+<path d="M399 272L422 288L399 304" fill="#2C7FB8"/>
+<path d="M682 288H718" stroke="#2C7FB8" stroke-width="7" stroke-linecap="round"/>
+<path d="M705 272L728 288L705 304" fill="#2C7FB8"/>
+<path d="M988 288H1024" stroke="#2C7FB8" stroke-width="7" stroke-linecap="round"/>
+<path d="M1011 272L1034 288L1011 304" fill="#2C7FB8"/>
+
+<path d="M408 514H444" stroke="#2B7A78" stroke-width="7" stroke-linecap="round"/>
+<path d="M431 498L454 514L431 530" fill="#2B7A78"/>
+<path d="M746 514H782" stroke="#2B7A78" stroke-width="7" stroke-linecap="round"/>
+<path d="M769 498L792 514L769 530" fill="#2B7A78"/>
+<path d="M1014 514H1050" stroke="#2B7A78" stroke-width="7" stroke-linecap="round"/>
+<path d="M1037 498L1060 514L1037 530" fill="#2B7A78"/>
+
+<path d="M1172 570V618" stroke="#4D6B88" stroke-width="6" stroke-linecap="round"/>
+<path d="M1156 605L1172 628L1188 605" fill="#4D6B88"/>
+
+<text x="84" y="816" fill="#59708A" font-family="Helvetica, Arial, sans-serif" font-size="18">Baseline status: repository complete, training verified, best validation MAE 30.7205 on the first RSNA experiment</text>
+</svg>
