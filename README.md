@@ -26,6 +26,8 @@ This initial version trains a text conditioned CLIP based bone age regressor on 
 - learnable fusion of image features, text features, and gender metadata
 - MAE regression objective
 
+The current prompt template is intentionally side agnostic: `hand radiograph for bone age assessment of a male pediatric patient` or the corresponding female variant. This avoids injecting incorrect left right assumptions when the dataset contains both hands.
+
 ## First baseline
 
 The first completed baseline was trained on the RSNA split for 10 epochs. The best validation result was obtained at epoch 10 with `val_mae = 30.7205`.
@@ -58,6 +60,36 @@ Epoch 008 | train loss=181.8035 mae=30.7032 | val loss=179.0077 mae=30.9678 | lr
 Epoch 009 | train loss=183.1067 mae=30.8954 | val loss=191.3968 mae=31.9023 | lr=0.0001000
 Epoch 010 | train loss=185.1844 mae=31.0308 | val loss=178.4001 mae=30.7205 | lr=0.0001000
 Saved new best checkpoint with val_mae=30.7205
+```
+
+## Prompt comparison baseline
+
+After removing the fixed left hand wording from the prompt and switching to a side agnostic template, the model was trained again as a controlled comparison. The best validation result in this run was `val_mae = 31.2888` at epoch 11.
+
+| Setting | Prompt template | Best epoch | Best val MAE |
+| --- | --- | ---: | ---: |
+| Baseline A | `left hand radiograph for bone age assessment of a {sex} pediatric patient` | 10 | 30.7205 |
+| Baseline B | `hand radiograph for bone age assessment of a {sex} pediatric patient` | 11 | 31.2888 |
+
+This comparison suggests that the current prompt wording has limited impact on overall performance, and the model is still driven mainly by image features and the structured gender input.
+
+Training log summary for the side agnostic prompt run:
+
+```text
+Epoch 001 | train loss=440.6374 mae=47.5488 | val loss=200.8173 mae=32.4972 | lr=0.0001000
+Saved new best checkpoint with val_mae=32.4972
+Epoch 002 | train loss=201.4974 mae=32.8536 | val loss=199.9044 mae=32.9225 | lr=0.0001000
+Epoch 003 | train loss=202.4444 mae=32.9591 | val loss=199.6082 mae=32.6562 | lr=0.0001000
+Epoch 004 | train loss=200.8079 mae=32.8685 | val loss=201.3649 mae=32.3400 | lr=0.0001000
+Saved new best checkpoint with val_mae=32.3400
+Epoch 005 | train loss=199.8717 mae=32.7658 | val loss=199.5208 mae=32.6642 | lr=0.0001000
+Epoch 006 | train loss=200.6411 mae=32.7891 | val loss=200.5902 mae=33.0842 | lr=0.0001000
+Epoch 007 | train loss=201.2324 mae=32.8094 | val loss=199.6376 mae=32.8214 | lr=0.0000500
+Epoch 008 | train loss=200.7900 mae=32.7540 | val loss=199.4989 mae=32.6905 | lr=0.0000500
+Epoch 009 | train loss=199.7491 mae=32.7083 | val loss=199.4743 mae=32.6038 | lr=0.0000500
+Epoch 010 | train loss=200.2154 mae=32.7587 | val loss=199.6174 mae=32.8341 | lr=0.0000250
+Epoch 011 | train loss=195.3042 mae=32.3066 | val loss=189.3358 mae=31.2888 | lr=0.0000250
+Saved new best checkpoint with val_mae=31.2888
 ```
 
 ## Expected data format

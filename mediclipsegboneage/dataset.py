@@ -55,7 +55,7 @@ class RSNABoneAgePromptDataset(Dataset):
         is_male = int(bool(row["Male"]))
         gender = torch.tensor([float(is_male)], dtype=torch.float32)
         sex_text = "male" if is_male else "female"
-        prompt = f"left hand radiograph for bone age assessment of a {sex_text} pediatric patient"
+        prompt = f"hand radiograph for bone age assessment of a {sex_text} pediatric patient"
 
         sample = {
             "image": image,

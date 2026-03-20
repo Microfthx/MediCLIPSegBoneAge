@@ -1,0 +1,14 @@
+Epoch 001 | train loss=440.6374 mae=47.5488 | val loss=200.8173 mae=32.4972 | lr=0.0001000
+Saved new best checkpoint with val_mae=32.4972
+Epoch 002 | train loss=201.4974 mae=32.8536 | val loss=199.9044 mae=32.9225 | lr=0.0001000
+Epoch 003 | train loss=202.4444 mae=32.9591 | val loss=199.6082 mae=32.6562 | lr=0.0001000
+Epoch 004 | train loss=200.8079 mae=32.8685 | val loss=201.3649 mae=32.3400 | lr=0.0001000
+Saved new best checkpoint with val_mae=32.3400
+Epoch 005 | train loss=199.8717 mae=32.7658 | val loss=199.5208 mae=32.6642 | lr=0.0001000
+Epoch 006 | train loss=200.6411 mae=32.7891 | val loss=200.5902 mae=33.0842 | lr=0.0001000
+Epoch 007 | train loss=201.2324 mae=32.8094 | val loss=199.6376 mae=32.8214 | lr=0.0000500
+Epoch 008 | train loss=200.7900 mae=32.7540 | val loss=199.4989 mae=32.6905 | lr=0.0000500
+Epoch 009 | train loss=199.7491 mae=32.7083 | val loss=199.4743 mae=32.6038 | lr=0.0000500
+Epoch 010 | train loss=200.2154 mae=32.7587 | val loss=199.6174 mae=32.8341 | lr=0.0000250
+Epoch 011 | train loss=195.3042 mae=32.3066 | val loss=189.3358 mae=31.2888 | lr=0.0000250
+Saved new best checkpoint with val_mae=31.2888
