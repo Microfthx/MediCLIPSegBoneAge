@@ -1,0 +1,16 @@
+dataset:
+  image_dir: /data/hxly/datasets/BoneAge/RSNA/rsna_all
+  train_csv: /data/hxly/datasets/BoneAge/RSNA/annotations/RSNA_Annotations/RSNA_Boneage_Training.csv
+  val_csv: /data/hxly/datasets/BoneAge/RSNA/annotations/RSNA_Annotations/RSNA_Boneage_Validation.csv
+  image_size: 224
+
+model:
+  backbone: ViT-B/16
+  freeze_image_encoder: false
+  dropout: 0.2
+
+optim:
+  lr: 1.0e-4
+  weight_decay: 1.0e-4
+  batch_size: 16
+  epochs: 20
